@@ -2,6 +2,7 @@
   background-color: var(--neutral-blue--1);
   padding: 10rem 2rem;
   position: relative;
+  min-height: 100vh;
 }
 
 .container {
@@ -15,7 +16,7 @@
 }
 @media (max-width: 676px) {
   .main {
-    height: 100vh;
+    margin-bottom: 100px;
     padding: 0;
   }
   .container {
