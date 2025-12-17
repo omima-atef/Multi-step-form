@@ -1,0 +1,96 @@
+/* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
+@import "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css";
+@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
+
+:root {
+  --primary-blue--1: hsl(213, 96%, 18%);
+  --primary-blue--2: hsl(228, 100%, 84%);
+  --primary-blue--3: hsl(206, 94%, 87%);
+  --primary-purple--1: hsl(243, 100%, 62%);
+  --primary-purple--2: hsl(243deg 100% 62% / 72%);
+  --primary-red--1: hsl(354, 84%, 57%);
+
+  --neutral-gray--1: hsl(231, 11%, 63%);
+  --neutral-purple--1: hsl(229, 24%, 87%);
+  --neutral-blue--1: hsl(218, 100%, 97%);
+  --neutral-blue--2: hsl(231, 100%, 99%);
+  --extra-large-text: 3.5rem;
+  --large-text: 2.5rem;
+  --middle-text: 1.8rem;
+  --below-average-text: 1.6rem;
+  --small-text: 1.4rem;
+  --extra-small-text: 1.2rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+label {
+}
+
+input,
+textarea {
+  border: none;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.content {
+  width: 100%;
+  padding-left: 2rem;
+  position: relative;
+}
+.content > * {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+.title {
+  padding: 3.5rem 0;
+}
+.title h1 {
+  font-size: var(--extra-large-text);
+  color: var(--primary-blue--1);
+  padding-bottom: 1rem;
+}
+.title p {
+  color: var(--neutral-gray--1);
+  font-size: var(--middle-text);
+}
+
+@media (max-width: 676px) {
+  .content {
+    position: relative;
+    background: white;
+    padding: 2rem;
+    margin-top: 7rem;
+    border-radius: 2%;
+    z-index: 3;
+  }
+  .title {
+    padding: 1rem 0;
+  }
+}
+@media (max-width: 459px) {
+  .content {
+    padding: 2rem;
+  }
+  .title h1 {
+    font-size: var(--large-text);
+  }
+  .title p {
+    font-size: var(--below-average-text);
+  }
+}

@@ -1,0 +1,81 @@
+.optionPick input[type="checkbox"] {
+  display: none;
+}
+.optionPick input[type="checkbox"] + label {
+  transition: 0.3s;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1.6rem;
+  border: solid 2px var(--neutral-purple--1);
+  border-radius: 1rem;
+  margin: 1.6rem 0;
+  align-items: center;
+}
+.optionPick input[type="checkbox"] + label:hover {
+  border-color: var(--primary-purple--1);
+}
+.optionPick input[type="checkbox"]:checked + label {
+  border-color: var(--primary-purple--1);
+  background: var(--neutral-blue--2);
+}
+.optionPick input[type="checkbox"] + label span {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.optionPick input[type="checkbox"]:checked + label span {
+  background-color: #2575fc;
+  border-color: #2575fc;
+}
+
+.optionPick input[type="checkbox"]:checked + label span::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 1px;
+  width: 3px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.optionPick input[type="checkbox"] + label > div {
+  flex-grow: 1;
+  line-height: 1.4;
+}
+
+.optionPick input[type="checkbox"] + label h1 {
+  color: var(--primary-blue--1);
+  font-size: var(--middle-text);
+}
+.optionPick input[type="checkbox"] + label p {
+  color: var(--neutral-gray--1);
+  font-size: var(--below-average-text);
+}
+
+.optionPick input[type="checkbox"] + label h2 {
+  color: var(--primary-purple--2);
+}
+
+@media (max-width: 768px) {
+  .optionPick input[type="checkbox"] + label {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  .optionPick input[type="checkbox"] + label h1 {
+    font-size: var(--below-average-text);
+  }
+  .optionPick input[type="checkbox"] + label p {
+    font-size: var(--small-text);
+  }
+  .optionPick input[type="checkbox"] + label h2 {
+    font-size: var(--small-text);
+  }
+}

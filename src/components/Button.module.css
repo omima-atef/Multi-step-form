@@ -1,0 +1,46 @@
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  max-width: 50rem;
+
+  width: -webkit-fill-available;
+  align-items: center;
+}
+
+.back button {
+  display: inline-block;
+  font-size: var(--middle-text);
+  border: none;
+  color: var(--neutral-gray--1);
+  background-color: #0000;
+}
+.next {
+  margin-left: auto;
+}
+.next button {
+  display: inline-block;
+  width: 15rem;
+  font-size: var(--middle-text);
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--primary-blue--1);
+  color: white;
+}
+@media (max-width: 676px) {
+  .buttonContainer {
+    max-width: none;
+    background: white;
+    width: 100%;
+    left: 0;
+    padding: 2rem;
+  }
+}
+@media (max-width: 459px) {
+  .next button {
+    width: 12rem;
+    height: 5rem;
+  }
+}

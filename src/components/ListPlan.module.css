@@ -1,0 +1,127 @@
+.groupOptions {
+  display: flex;
+  gap: 2.3rem;
+}
+input {
+  appearance: none;
+}
+.billing {
+  width: calc((100% - 4.6rem) / 3);
+}
+.billing label {
+  padding: 2rem;
+  border-radius: 0.7rem;
+  border: solid 2px var(--neutral-purple--1);
+}
+.billing label:hover {
+  background-color: var(--neutral-blue--2);
+}
+.billing label {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: start;
+  color: var(--primary-blue--1);
+}
+.billing input[type="radio"]:checked + label {
+  border: solid 2px var(--primary-purple--1);
+  background-color: var(--neutral-blue--2);
+}
+.billing label div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.billing label h1 {
+  font-size: var(--below-average-text);
+}
+.billing label h2 {
+  font-size: var(--below-average-text);
+  color: var(--neutral-gray--1);
+}
+
+.billing label h3 {
+  font-size: var(--extra-small-text);
+  font-weight: 400;
+}
+.boxCheck {
+  display: flex;
+  background-color: var(--neutral-blue--2);
+  padding: 2rem;
+  border-radius: 0.7rem;
+  margin-top: 3rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.boxCheck button {
+  font-size: var(--below-average-text);
+  background-color: #0000;
+  border: none;
+  color: var(--primary-blue--1);
+  font-weight: bold;
+}
+.boxCheck button:nth-of-type(2) {
+  width: 4.5rem;
+  height: 2.5rem;
+  border-radius: 2rem;
+  background-color: var(--primary-blue--1);
+  position: relative;
+}
+
+.boxCheck button:nth-of-type(2)::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.yearly button:nth-of-type(2)::after {
+  left: 25px;
+}
+.monthly button:nth-of-type(2)::after {
+  left: 5px;
+}
+
+.monthly button:nth-of-type(3) {
+  color: var(--neutral-gray--1);
+}
+.yearly button:nth-of-type(1) {
+  color: var(--neutral-gray--1);
+}
+@media (max-width: 768px) {
+  .groupOptions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .billing {
+    width: 100%;
+  }
+  .billing label {
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+  }
+  .groupOptions {
+    gap: 0rem;
+  }
+  .billing label {
+    padding: 1rem;
+  }
+  .billing label div {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+  }
+  .boxCheck {
+    margin-top: 1rem;
+  }
+}

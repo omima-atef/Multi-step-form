@@ -1,0 +1,13 @@
+.final {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.final img {
+  padding-bottom: 3rem;
+}
+.final p {
+  line-height: 1.4;
+}

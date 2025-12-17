@@ -1,0 +1,71 @@
+.finalConfirm .price {
+  padding: 2rem;
+  background: var(--neutral-blue--2);
+  border-radius: 1rem;
+  margin: 1rem auto;
+}
+
+.finalConfirm .price > div,
+.finalConfirm .total {
+  display: flex;
+  justify-content: space-between;
+}
+.finalConfirm .price > div:nth-child(1) {
+  align-items: center;
+  padding-bottom: 2rem;
+  line-height: 1.4;
+}
+.finalConfirm .price > div:nth-child(2) {
+  flex-direction: column;
+  padding-top: 2rem;
+  border-top: solid 1px var(--neutral-purple--1);
+  line-height: 2;
+}
+.finalConfirm .price > div:nth-child(2) div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.finalConfirm .price h1 {
+  color: var(--primary-blue--1);
+  font-size: var(--below-average-text);
+}
+
+.finalConfirm .price p,
+.finalConfirm .total p,
+a {
+  font-size: var(--below-average-text);
+  color: var(--neutral-gray--1);
+}
+
+.finalConfirm a.change {
+  text-decoration: underline;
+  font-weight: bold;
+  transition: 0.1s;
+}
+.finalConfirm a.change:hover {
+  color: var(--primary-purple--1);
+}
+.finalConfirm .price span {
+  font-size: var(--below-average-text);
+  color: var(--primary-blue--1);
+  font-weight: bold;
+}
+
+.finalConfirm .total {
+  padding: 2rem;
+  font-size: var(--below-average-text);
+}
+.finalConfirm .total span {
+  font-size: var(--middle-text);
+  padding: 0;
+  font-weight: bold;
+  color: var(--primary-purple--1);
+}
+.button a:last-child button {
+  background-color: var(--primary-purple--1);
+  transition: 0.1s;
+}
+.button a:last-child button:focus {
+  background-color: var(--neutral-purple--1);
+}

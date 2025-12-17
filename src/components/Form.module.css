@@ -1,0 +1,46 @@
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--below-average-text);
+  color: var(--primary-blue--1);
+}
+.label {
+  display: block;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form input {
+  display: block;
+  font-size: var(--below-average-text);
+  padding: 1.5rem;
+  border: solid 1px var(--neutral-purple--1);
+  margin: 0.7rem 0 2rem 0;
+  border-radius: 0.7rem;
+  width: 100%;
+  color: var(--primary-blue--1);
+  background-color: white;
+}
+.form input:focus {
+  outline-color: var(--primary-blue--1);
+}
+.error {
+  position: relative;
+}
+.error::after {
+  content: "This field is required";
+  position: absolute;
+  color: red;
+  right: 0;
+}
+.error + input {
+  border: solid 1px red;
+}
+
+@media (max-width: 459px) {
+  .formGroup {
+    font-size: var(--paragraph-mobile);
+  }
+}
