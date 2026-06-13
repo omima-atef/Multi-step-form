@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
-import styles from "./finalStep.module.css";
+import styles from "./FinalStep.module.css";
 import { PostContext } from "../page/MainPage";
 
 function FinalStep() {
