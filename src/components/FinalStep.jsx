@@ -34,7 +34,7 @@ function FinalStep() {
               </>
             ) : (
               ""
-            )
+            ),
           )}
         </div>
         <div>
@@ -48,7 +48,7 @@ function FinalStep() {
                     {timeBill === "Monthly" ? `/mo` : `0/yr`}{" "}
                   </span>
                 </div>
-              )
+              ),
           )}
         </div>
       </div>

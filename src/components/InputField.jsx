@@ -1,30 +1,16 @@
 import styles from "./Form.module.css";
-import { useContext } from "react";
-import { PostContext } from "../page/MainPage";
 
-function InputField({ id, type, placeholder, value, error }) {
-  const { handleInputChange } = useContext(PostContext);
-
+function InputField({ id, type, placeholder, register, error }) {
   return (
-    <div>
-      <label
-        htmlFor={id}
-        className={`${styles.label} ${error && styles.error}`}
-      >
+    <div className={`${error ? styles.error : ""}`}>
+      {error && <p>{error}</p>}
+      <label htmlFor={id} className={`${styles.label}`}>
         {id}
       </label>
-      <input
-        type={type}
-        id={id}
-        name={id}
-        placeholder={placeholder}
-        required
-        aria-required="true"
-        aria-describedby={`${id}Error`}
-        value={value}
-        onChange={handleInputChange}
-      />
+
+      <input type={type} id={id} placeholder={placeholder} {...register} />
     </div>
   );
 }
+
 export default InputField;

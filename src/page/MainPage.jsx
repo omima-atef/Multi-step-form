@@ -1,14 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import styles from "./MainPage.module.css";
+import { useLocation } from "react-router-dom";
 
 export const PostContext = createContext();
 
 function MainPage({ children }) {
-  const [formData, setFormData] = useState({
-    Name: "",
-    "Email Address": "",
-    "Phone Number": "",
-  });
+  const nav = useLocation();
   const [timeBill, setTimeBill] = useState("Monthly");
   const [billing, setBilling] = useState([
     {
@@ -53,13 +50,6 @@ function MainPage({ children }) {
   ]);
   const [totalAccount, setTotalAccount] = useState(0);
 
-  const [disabled, setDisabled] = useState(false);
-  const [errors, setErrors] = useState({
-    errUserName: false,
-    errEmail: false,
-    errPhone: false,
-  });
-
   const billingChange = function (item) {
     setBilling((elements) =>
       elements.map((ele) => {
@@ -67,75 +57,51 @@ function MainPage({ children }) {
           ...ele,
           isChecked: ele === item,
         };
-      })
+      }),
     );
   };
-  function errorEnput(e) {
-    e.preventDefault();
-    setErrors({ errUserName: false, errEmail: false, errPhone: false });
-    if (formData.Name.trim().length < 5) {
-      setErrors((e) => ({ ...e, errUserName: true }));
-    }
-    if (formData["Email Address"].trim().length < 5) {
-      setErrors((e) => ({ ...e, errEmail: true }));
-    }
-    if (formData["Phone Number"].trim().length < 5) {
-      setErrors((e) => ({ ...e, errPhone: true }));
-    }
-  }
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-  useEffect(
-    function () {
-      setErrors((e) => ({
-        ...e,
-        errEmail: false,
-        errUserName: false,
-        errPhone: false,
-      }));
-      setDisabled(() => false);
-      if (
-        formData.Name.trim().length < 5 ||
-        formData["Email Address"].trim().length < 5 ||
-        formData["Phone Number"].trim().length < 5
-      ) {
-        setDisabled(() => true);
-      }
-    },
-    [formData]
-  );
   useEffect(
     function () {
       setTotalAccount(() => 0);
       pickers.map((ele) =>
         ele.isChecked
           ? setTotalAccount((e) =>
-              timeBill === "Yearly" ? +e + +ele.price * 10 : +e + +ele.price
+              timeBill === "Yearly" ? +e + +ele.price * 10 : +e + +ele.price,
             )
-          : null
+          : null,
       );
       billing.map((ele) =>
         ele.isChecked
           ? setTotalAccount((e) =>
-              timeBill === "Yearly" ? +e + +ele.price * 10 : +e + +ele.price
+              timeBill === "Yearly" ? +e + +ele.price * 10 : +e + +ele.price,
             )
-          : null
+          : null,
       );
     },
-    [pickers, billing, timeBill]
+    [pickers, billing, timeBill],
   );
+
+  const data = JSON.parse(localStorage.getItem("formData"));
+  const picker = pickers
+    .filter(({ isChecked }) => isChecked)
+    .map(({ header }) => header);
+
+  const bill = billing
+    .filter(({ isChecked }) => isChecked)
+    .map(({ name }) => name);
+  useEffect(function () {
+    if (nav.pathname.startsWith("/msg")) {
+      data.pickers = picker;
+      data.billing = `${bill}(${timeBill})`;
+      data.totalAccount = totalAccount;
+
+      localStorage.setItem("formData", JSON.stringify(data));
+      console.log(JSON.parse(localStorage.getItem("formData")));
+    }
+  });
   return (
     <PostContext.Provider
       value={{
-        userName: formData.Name,
-        email: formData["Email Address"],
-        phoneNumber: formData["Phone Number"],
         billing,
         setBilling,
         timeBill,
@@ -144,10 +110,6 @@ function MainPage({ children }) {
         setPicker,
         billingChange,
         totalAccount,
-        disabled,
-        errorEnput,
-        handleInputChange,
-        errors,
       }}
     >
       <div className={styles.main}>

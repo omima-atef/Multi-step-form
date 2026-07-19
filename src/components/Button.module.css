@@ -9,25 +9,29 @@
   align-items: center;
 }
 
-.back button {
+.back {
   display: inline-block;
   font-size: var(--middle-text);
   border: none;
   color: var(--neutral-gray--1);
   background-color: #0000;
 }
-.next {
-  margin-left: auto;
-}
-.next button {
-  display: inline-block;
-  width: 15rem;
-  font-size: var(--middle-text);
-  height: 6rem;
+.button {
   border: none;
-  border-radius: 1rem;
+}
+
+.next,
+.button {
+  width: 15rem;
+  height: 6rem;
   background-color: var(--primary-blue--1);
+  font-size: var(--middle-text);
   color: white;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
 }
 @media (max-width: 676px) {
   .buttonContainer {
@@ -40,7 +44,7 @@
   }
 }
 @media (max-width: 459px) {
-  .next button {
+  .next {
     width: 12rem;
     height: 5rem;
   }

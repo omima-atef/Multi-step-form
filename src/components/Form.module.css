@@ -24,18 +24,18 @@
   background-color: white;
 }
 .form input:focus {
-  outline-color: var(--primary-blue--1);
+  border: solid 2px var(--primary-blue--1);
+  outline: none;
 }
 .error {
   position: relative;
 }
-.error::after {
-  content: "This field is required";
-  position: absolute;
+.error p {
   color: red;
+  position: absolute;
   right: 0;
 }
-.error + input {
+.error input {
   border: solid 1px red;
 }
 
